@@ -1,5 +1,6 @@
 package utils;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -18,9 +19,11 @@ public class BrowserManager {
         switch (selectedBrowser) {
 
             case "firefox":
+                WebDriverManager.firefoxdriver().setup();
                 browser = new FirefoxDriver();
                 break;
             case "chrome-mobile":
+                WebDriverManager.chromedriver().setup();
                 Map<String, String> device = new HashMap<>();
                 device.put("deviceName", "Nexus 5");
                 ChromeOptions options = new ChromeOptions();
@@ -28,6 +31,7 @@ public class BrowserManager {
                 browser = new ChromeDriver(options);
                 break;
             default:
+                WebDriverManager.chromedriver().setup();
                 browser = new ChromeDriver();
                 break;
         }
