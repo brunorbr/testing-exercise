@@ -14,6 +14,7 @@ public class CustomerPage extends BasePage{
     }
 
     public StorePage clickOnNewOrderButton(){
+        waitFor(newOrderButton, 5);
         newOrderButton.click();
         return new StorePage(browser);
     }

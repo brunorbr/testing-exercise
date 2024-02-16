@@ -13,15 +13,13 @@ public class ConfirmationPage extends BasePage {
 
     @FindBy(xpath = "//h2[@class='h2 modal-title mb-5']")
     private WebElement confirmationMessage;
-    WebDriverWait wait;
 
     public ConfirmationPage(WebDriver browser){
         initElements(browser);
     }
 
     public String getConfirmationText(){
-        wait = new WebDriverWait(browser, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOf(confirmationMessage));
+        waitFor(confirmationMessage, 5);
         return confirmationMessage.getText();
     }
 

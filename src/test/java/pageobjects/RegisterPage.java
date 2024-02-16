@@ -3,7 +3,11 @@ package pageobjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.DataGenerator;
+
+import java.time.Duration;
 
 public class RegisterPage extends BasePage{
 
@@ -43,6 +47,7 @@ public class RegisterPage extends BasePage{
         emailField.sendKeys(email);
         passwordField.sendKeys(password);
         passwordConfirmationField.sendKeys(password);
+        waitFor(privacyPolicyCheckbox, 5);
         privacyPolicyCheckbox.click();
         newsletterSubscriptionCheckbox.click();
         continueButton.click();
