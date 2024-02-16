@@ -32,6 +32,7 @@ public class BrowserManager {
                 options = new ChromeOptions();
                 options.addArguments("--no-sandbox");
                 options.addArguments("--disable-dev-shm-usage");
+                options.addArguments("headless");
                 browser = new ChromeDriver(options);
                 break;
         }
