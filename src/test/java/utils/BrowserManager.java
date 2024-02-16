@@ -31,7 +31,7 @@ public class BrowserManager {
             default:
                 options = new ChromeOptions();
                 options.addArguments("--no-sandbox");
-                options.addArguments("--nodisable-dev-shm-usage");
+                options.addArguments("--disable-dev-shm-usage");
                 browser = new ChromeDriver(options);
                 break;
         }
