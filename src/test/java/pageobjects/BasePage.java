@@ -14,6 +14,7 @@ public abstract class BasePage {
 
     public void initElements(WebDriver driver){
         this.browser = driver;
+        waitForSeconds(3);
         PageFactory.initElements(browser, this);
     }
 

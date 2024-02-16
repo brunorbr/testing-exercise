@@ -27,6 +27,7 @@ public class ProductPage extends BasePage{
         js = (JavascriptExecutor)browser;
         js.executeScript("arguments[0].scrollIntoView()", oneYearUsageTimeButton);
         oneYearUsageTimeButton.click();
+        js.executeScript("arguments[0].scrollIntoView()", continueButton);
         continueButton.click();
         return new OrderDetails(browser);
     }
