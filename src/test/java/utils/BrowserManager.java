@@ -12,9 +12,10 @@ public class BrowserManager {
     private static WebDriver browser;
 
     public static WebDriver selectBrowser() {
+        ChromeOptions options;
         String selectedBrowser = System.getProperty(
                 "browser",
-                "firefox");
+                "chrome");
         switch (selectedBrowser) {
 
             case "firefox":
@@ -23,12 +24,15 @@ public class BrowserManager {
             case "chrome-mobile":
                 Map<String, String> device = new HashMap<>();
                 device.put("deviceName", "Nexus 5");
-                ChromeOptions options = new ChromeOptions();
+                options = new ChromeOptions();
                 options.setExperimentalOption("mobileEmulation", device);
                 browser = new ChromeDriver(options);
                 break;
             default:
-                browser = new ChromeDriver();
+                options = new ChromeOptions();
+                options.addArguments("--no-sandbox");
+                options.addArguments("--nodisable-dev-shm-usage");
+                browser = new ChromeDriver(options);
                 break;
         }
         return browser;
